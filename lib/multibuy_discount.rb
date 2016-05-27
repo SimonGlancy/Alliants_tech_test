@@ -15,7 +15,7 @@ class MultibuyDiscount
   attr_reader :multibuy_item, :multibuy_threshold, :multibuy_price
 
   def multibuy?(basket)
-    basket.items.count(multibuy_item) > 1
+    basket.items.count(multibuy_item) >= multibuy_threshold
   end
 
   def find_offers_in(basket)
