@@ -8,18 +8,22 @@ describe MultibuyDiscount do
   DISCOUNT_PRICE = 8.50
   DISCOUNT_THESHOLD = 2
 
-  subject(:multibuy_discount) {described_class.new(item: item,
-                                                   discount_threshold: DISCOUNT_THESHOLD,
-                                                   discount_price: DISCOUNT_PRICE)}
+  subject(:multibuy_discount) {described_class.new(multibuy_item: item,
+                                                   multibuy_threshold: DISCOUNT_THESHOLD,
+                                                   multibuy_price: DISCOUNT_PRICE)}
   let(:item) {double(:item,
                       product_code: PRODUCT_CODE,
                       name: PRODUCT_NAME,
                       price: PRODUCT_PRICE,
                       discount: DISCOUNT_PRICE)}
 
-  describe "#initialize" do
-    it "has an item to be discounted" do
-      expect(multibuy_discount.item).to eq(item)
+  let(:basket) {double(:basket, items: [item,item], total: 2*PRODUCT_PRICE)}
+
+
+  describe "#apply" do
+    it "applies the discount to items" do
+      expect(item).to receive(:discount)
+      multibuy_discount.apply(basket)
     end
   end
 end
