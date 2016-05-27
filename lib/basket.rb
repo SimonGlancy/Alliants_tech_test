@@ -13,5 +13,4 @@ class Basket
   def total
     items.inject(0){|total, item| total + item.price}
   end
-
 end

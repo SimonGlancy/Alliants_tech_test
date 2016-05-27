@@ -1,7 +1,5 @@
 class BasketDiscount
 
-
-
   def initialize(discount_threshold: nil, discount_percentage: nil)
     @discount_threshold = discount_threshold
     @discount_percentage = discount_percentage
@@ -26,6 +24,4 @@ private
   def discount_total(basket)
     reduction * basket.total
   end
-
-
 end

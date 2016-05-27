@@ -15,5 +15,4 @@ attr_reader :product_code, :name
   def discount(new_price)
     @price = new_price
   end
-
 end

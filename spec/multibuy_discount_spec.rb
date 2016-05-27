@@ -1,12 +1,7 @@
 require "multibuy_discount"
+require_relative "helper"
 
 describe MultibuyDiscount do
-
-  PRODUCT_CODE = "001"
-  PRODUCT_NAME = "Lavender heart"
-  PRODUCT_PRICE = 9.25
-  DISCOUNT_PRICE = 8.50
-  DISCOUNT_THESHOLD = 2
 
   subject(:multibuy_discount) {described_class.new(multibuy_item: item,
                                                    multibuy_threshold: DISCOUNT_THESHOLD,

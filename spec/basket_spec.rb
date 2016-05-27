@@ -25,5 +25,4 @@ describe Basket do
       expect(basket.total).to eq(2 * 9.25)
     end
   end
-
 end
