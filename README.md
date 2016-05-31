@@ -1,6 +1,6 @@
-| [Solution](https://github.com/SimonGlancy/Alliants_tech_test#solution) | [Conclusion](https://github.com/SimonGlancy/Alliants_tech_test#conclusion) |
+| [Solution](https://github.com/SimonGlancy/Checkout_tech_test#solution) | [Conclusion](https://github.com/SimonGlancy/Checkout_tech_test#conclusion) |
 
-# Alliants - Tech Test
+# Checkout - Tech Test
 
 #### Author: Simon Glancy
 #### Date: 27/05/2016
