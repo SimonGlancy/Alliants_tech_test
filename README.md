@@ -54,7 +54,7 @@ Implement a checkout system that fulfills these requirements.
 
 ### Solution
 
-I attempted to complete this task in the most object oriented manner possible, my final solution has four seperate classes attempting to adhere to SOLID principles as much as possible.
+I attempted to complete this task in the most object oriented manner possible, my final solution has five seperate classes attempting to adhere to SOLID principles as much as possible.
 
 I saw one of the promotions as being local and one being global and have therefore implemented them at different stages of checkout process as described below.
 
