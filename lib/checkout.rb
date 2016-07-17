@@ -13,7 +13,7 @@ class Checkout
     promotional_rules ? promotional_rules.apply(basket) : basket.total
   end
 
-  private
+
 
   attr_reader :basket, :promotional_rules
 

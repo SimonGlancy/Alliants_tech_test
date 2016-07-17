@@ -19,20 +19,19 @@ describe Checkout do
 
   let(:basket_discount) {BasketDiscount.new(discount_threshold: BASKET_DISCOUNT_THRESHOLD,
                                             discount_percentage: DISCOUNT_PERCENTAGE)}
-  let(:basket_discount_2) {BasketDiscount.new(discount_threshold: 100,
+  let(:basket_discount_2) {BasketDiscount.new(discount_threshold: 10000,
                                               discount_percentage: 20)}
 
-  let(:item_001) {Item.new( product_code: "001", name: "Lavender heart", price: 9.25 )}
-  let(:item_002) {Item.new( product_code: "002", name: "Personalised cufflinks", price: 45.00)}
-  let(:item_003) {Item.new( product_code: "003", name: "Kids T-shirt", price: 19.95)}
+  let(:item_001) {Item.new( product_code: "001", name: "Lavender heart", price: 925 )}
+  let(:item_002) {Item.new( product_code: "002", name: "Personalised cufflinks", price: 4500)}
+  let(:item_003) {Item.new( product_code: "003", name: "Kids T-shirt", price: 1995)}
 
   describe "test 001" do
     it "scan 001,002,003 -> Total price expected: £66.78" do
       checkout.scan(item_001)
       checkout.scan(item_002)
       checkout.scan(item_003)
-
-      expect(checkout.total).to eq(66.78)
+      expect(checkout.total).to eq(6678)
     end
   end
 
@@ -41,7 +40,10 @@ describe Checkout do
       checkout.scan(item_001)
       checkout.scan(item_003)
       checkout.scan(item_001)
-      expect(checkout.total).to eq(36.95)
+
+      expect(checkout.total).to eq(3695)
+
+
     end
   end
 
@@ -51,7 +53,12 @@ describe Checkout do
       checkout.scan(item_002)
       checkout.scan(item_001)
       checkout.scan(item_003)
-      expect(checkout.total).to eq(73.76)
+
+      checkout.total
+
+      p checkout.basket.items
+
+      expect(checkout.total).to eq(7376)
     end
   end
 
@@ -62,7 +69,7 @@ describe Checkout do
       checkout.scan(item_003)
       checkout.scan(item_002)
 
-      expect(checkout.total).to eq(95.36)
+      expect(checkout.total).to eq(9536)
     end
   end
 end

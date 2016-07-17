@@ -11,7 +11,7 @@ describe BasketDiscount do
 
   describe "#apply" do
     it "returns the correct total for basket over threshold" do
-      expect(basket_discount.apply(discount_basket)).to eq((BASKET_DISCOUNT_THRESHOLD + 5)*0.9)
+      expect(basket_discount.apply(discount_basket)).to eq(((BASKET_DISCOUNT_THRESHOLD + 5)*0.9).round)
     end
 
     it "returns the correct total for basket under threshold" do

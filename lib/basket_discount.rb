@@ -6,7 +6,7 @@ class BasketDiscount
   end
 
   def apply(basket)
-    basket_discount?(basket) ? discount_total(basket).round(2) : basket.total
+    basket_discount?(basket) ? discount_total(basket) : basket.total
   end
 
 private
@@ -22,6 +22,6 @@ private
   end
 
   def discount_total(basket)
-    reduction * basket.total
+    (reduction * basket.total).round
   end
 end

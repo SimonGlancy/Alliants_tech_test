@@ -3,7 +3,7 @@ require "basket"
 describe Basket do
   subject(:basket) {described_class.new}
 
-  let(:item) {double(:item, price: 9.25)}
+  let(:item) {double(:item, price: 925)}
 
   describe "#initialize" do
     it "has an empty items array" do
@@ -22,7 +22,7 @@ describe Basket do
     it "returns the total price of the basket" do
       basket.add(item)
       basket.add(item)
-      expect(basket.total).to eq(2 * 9.25)
+      expect(basket.total).to eq(2 * 925)
     end
   end
 end
