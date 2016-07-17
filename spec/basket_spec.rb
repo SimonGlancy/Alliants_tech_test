@@ -3,7 +3,8 @@ require "basket"
 describe Basket do
   subject(:basket) {described_class.new}
 
-  let(:item) {double(:item, price: 925)}
+  let(:item) {double(:item, price: 925, product_code: "item")}
+
 
   describe "#initialize" do
     it "has an empty items array" do
@@ -15,6 +16,26 @@ describe Basket do
     it "adds an item to the items array" do
       basket.add(item)
       expect(basket.items.empty?).to be(false)
+    end
+  end
+
+  describe "#remove" do
+    it "adds an item to the items array" do
+      basket.add(item)
+      basket.add(item)
+      basket.remove(item)
+      expect(basket.items.length).to be(1)
+    end
+  end
+
+  describe "#dup" do
+    it 'creates a new instance of the basket, including the items' do
+      basket.add(item)
+      basket.add(item)
+
+      new_basket = basket.dup
+
+      expect(new_basket.items).not_to be(basket.items)
     end
   end
 

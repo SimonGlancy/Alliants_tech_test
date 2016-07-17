@@ -15,10 +15,10 @@ class MultibuyDiscount
   attr_reader :multibuy_item, :multibuy_threshold, :multibuy_price
 
   def multibuy?(basket)
-    basket.items.count(multibuy_item) >= multibuy_threshold
+    basket.items.select{|item| item.product_code == multibuy_item.product_code}.length >= multibuy_threshold
   end
 
   def find_offers_in(basket)
-    basket.items.select{|item| item == multibuy_item }.uniq
+    basket.items.select{|item| item.product_code == multibuy_item.product_code }.uniq
   end
 end

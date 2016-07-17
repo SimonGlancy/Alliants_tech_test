@@ -54,10 +54,6 @@ describe Checkout do
       checkout.scan(item_001)
       checkout.scan(item_003)
 
-      checkout.total
-
-      p checkout.basket.items
-
       expect(checkout.total).to eq(7376)
     end
   end
@@ -70,6 +66,22 @@ describe Checkout do
       checkout.scan(item_002)
 
       expect(checkout.total).to eq(9536)
+    end
+  end
+
+
+  describe "test 005 - if an item is added to the basket then removed the correct total is given" do
+    it "scan 001,002,003 -> Total price expected: £95.36" do
+      checkout.scan(item_001)
+      checkout.scan(item_002)
+      checkout.scan(item_001)
+      checkout.scan(item_003)
+
+      expect(checkout.total).to eq(7376)
+
+      checkout.remove(item_001)
+
+      expect(checkout.total).to eq(6678)
     end
   end
 end

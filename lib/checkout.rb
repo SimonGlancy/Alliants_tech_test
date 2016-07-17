@@ -9,11 +9,15 @@ class Checkout
     basket.add(item)
   end
 
-  def total
-    promotional_rules ? promotional_rules.apply(basket) : basket.total
+  def remove(item)
+    basket.remove(item)
   end
 
+  def total
+    promotional_rules ? promotional_rules.apply(basket.dup) : basket.total
+  end
 
+private
 
   attr_reader :basket, :promotional_rules
 
